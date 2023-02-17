@@ -1,0 +1,6 @@
+pandas>=1.4.1
+numpy>=1.22.2
+vecsim>=0.0.2
+git+https://github.com/openai/CLIP.git
+Flask>=2.0.1
+pyarrow==7.0.0

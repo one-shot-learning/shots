@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Argmax Search Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://unpkg.com/htmx.org@1.8.0"></script>
+    <style>
+        .panel-highlight {
+            background-color: #e7b2e2;
+        }
+        .panel-body {
+            text-align: center;
+        }
+        .margin-top {
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <img src="/assets/argmax.png" style="margin-top:20px">
+            </div>
+            <div class="col-sm-9">
+                <h1>Text+Image Search Demo</h1>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" enctype="multipart/form-data" action="/imgsearch">
+                <div class="col-sm-3">
+                    <label class="form-check-label" for="file">Image File</label><br />
+                    <div class="form-group">
+                        <input type="file" name="file" id="file" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="submit" value="Image Search" class="btn btn-primary margin-top">
+                </div>
+            </form>
+            <form hx-post="/txtsearch"  hx-swap="outerHTML" hx-target="#results" >
+                <div class="col-sm-3">
+                    <label for="txt">Text Search</label>
+                    <div class="form-group">
+                        <input type="text" name="txt" id="txt" value="" placeholder="Text Search" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <button class="btn btn-primary margin-top">
+                        Text Search
+                      </button>
+                </div>
+              </form>
+        </div>
+        {% include 'results.html' %}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</body>
+</html>

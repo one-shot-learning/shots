@@ -1,0 +1,12 @@
+    {% if rec.highlight %}
+        <div class="panel panel-highlight">
+    {% else %}
+        <div class="panel panel-default">
+    {% endif %}
+            <div class="panel-heading">
+                <h3 class="panel-title">{{rec.title}}</h3>
+            </div>
+            <div class="panel-body">
+                <a hx-get="/cart/{{rec.id}}" hx-target="closest .panel" hx-swap="outerHTML"><img src="{{rec.image}}"  width="120"/></a>
+            </div>
+        </div>
